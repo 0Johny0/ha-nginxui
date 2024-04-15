@@ -9,4 +9,6 @@
 /etc/keepalived 存放keepalived的检测脚本及配置文件
 
 docker cli：
-`docker run -itd -v /home/nginxWebUI:/home/nginxWebUI -v /home/keepalived:/etc/keepalived -e BOOT_OPTIONS="--server.port=8080" --net=host ghcr.io/0johny0/nginxwebui:403`
+```
+docker run -itd -v /home/nginxWebUI:/home/nginxWebUI -v /home/keepalived:/etc/keepalived -e BOOT_OPTIONS="--server.port=8080" --net=host ghcr.io/0johny0/nginxwebui:403
+```
