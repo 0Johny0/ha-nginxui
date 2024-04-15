@@ -6,7 +6,8 @@
 在多主机环境中可以提高 nginx 的可用性。
 
 使用时需另外映射目录：
-/etc/keepalived 存放keepalived的检测脚本及配置文件
+
+`/etc/keepalived` 存放keepalived的检测脚本及配置文件
 
 docker cli：
 ```
