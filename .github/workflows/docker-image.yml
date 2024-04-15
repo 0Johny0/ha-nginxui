@@ -1,4 +1,4 @@
-name: docker-hangxui-builder
+name: docker-nginxwebui-builder
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  IMAGE_NAME: hangxui #这是您的镜像名
+  IMAGE_NAME: nginxwebui #这是您的镜像名
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         run: echo "${{ secrets.SECRET_NGXKP }}" | docker login ghcr.io -u 0Johny0 --password-stdin
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ghcr.io/0johny0/hanginxui:403 .
+        run: docker build . --file Dockerfile --tag ghcr.io/0johny0/nginxwebui:403 .
 
       - name: Push the Docker image
-        run: docker push ghcr.io/0johny0/hanginxui:403
+        run: docker push ghcr.io/0johny0/nginxwebui:403
