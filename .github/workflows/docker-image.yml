@@ -1,0 +1,28 @@
+name: docker-hangxui-builder
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  IMAGE_NAME: hangxui #这是您的镜像名
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      REGISTRY: ghcr.io
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login
+        run: echo "${{ secrets.SECRET_NGXKP }}" | docker login ghcr.io -u 0Johny0 --password-stdin
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag ghcr.io/0johny0/hanginxui:403 .
+
+      - name: Push the Docker image
+        run: docker push ghcr.io/0johny0/hanginxui:403
