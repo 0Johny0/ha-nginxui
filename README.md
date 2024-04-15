@@ -1,4 +1,4 @@
-# nginx+webui+keepalived
+# Nginx + WebUI + Keepalived + Docker
 
 #### 介绍
 根据自己需求在原作者 nginxWebUI:4.0.2 版本基础上增加了 keepalived 模块并打包为 docker 镜像。
