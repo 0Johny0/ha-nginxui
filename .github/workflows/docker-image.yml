@@ -22,7 +22,7 @@ jobs:
         run: echo "${{ secrets.SECRET_NGXKP }}" | docker login ghcr.io -u 0Johny0 --password-stdin
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag 0johny0/nginxwebui:403 .
+        run: docker build . --file Dockerfile --tag ghcr.io/0johny0/nginxwebui:403
 
       - name: Push the Docker image
-        run: docker push 0johny0/nginxwebui:403
+        run: docker push ghcr.io/0johny0/nginxwebui:403
