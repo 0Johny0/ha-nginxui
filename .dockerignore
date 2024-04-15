@@ -1,5 +1,0 @@
-*
-!target/nginxWebUI-*.jar
-!Dockerfile
-!keepalived.conf
-!entrypoint.sh
