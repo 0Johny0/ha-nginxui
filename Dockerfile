@@ -19,12 +19,19 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
        logrotate \
        tini \
        acme.sh \
+       keepalived \
+       openrc \
+       procps \
     && fc-cache -f -v \
+    && mkdir /run/openrc/ \
+    && touch /run/openrc/softlevel \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo "${TZ}" > /etc/timezone \
-    && rm -rf /var/cache/apk/* /tmp/*
-COPY target/nginxWebUI-*.jar /home/nginxWebUI.jar
+    && rm -rf /var/cache/apk/* /tmp/* \
+    && wget -O /home/nginxWebUI.jar http://file.nginxwebui.cn/nginxWebUI-4.0.2.jar
+COPY keepalived.conf /etc/keepalived/keepalived.conf
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN ["chmod", "+x", "/usr/local/bin/entrypoint.sh"]
 VOLUME ["/home/nginxWebUI"]
+VOLUME ["/etc/keepalived"]
 ENTRYPOINT ["tini", "entrypoint.sh"]
